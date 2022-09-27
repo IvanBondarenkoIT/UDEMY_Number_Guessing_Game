@@ -1,0 +1,27 @@
+
+#from art import logo
+import random
+
+
+#print(logo)
+win_num = random.randint(1,100)
+print("Welcome to the Number Guessing Game! \n I'm thinking of a number between 1 and 100.")
+print(f"Pssst, the correct answer is {win_num}")
+user_lives = 10 if input("Choose a difficulty. Type 'easy' or 'hard':".lower()) == 'easy' else 5
+    
+while user_lives > 0:
+    print(f"You have {user_lives} attempts remaining to guess the number.")
+    guess = int(input("Make a guess: "))
+    if guess < win_num:
+        print("Too low \nGuess again.")
+    elif guess > win_num:
+        print("Too hight \nGuess again.")
+    else:
+        print(f"You got it! The answer was {win_num}.")
+        break
+    user_lives -= 1
+
+if user_lives == 0:
+    print("You've run out of guesses, you lose.")
+
+print("Game ends")
